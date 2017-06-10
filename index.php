@@ -45,7 +45,9 @@
             ?>
             <!-- Result of validation starts -->
             <div class="col-sm-12 text-center">
-            <?= $validation->result['validationMessage']; ?>
+            <h3><strong>Your card type is:</strong> <?= $validation->result['cardType']; ?></h3>
+            <h3><strong>Result of validation:</strong> <?= $validation->result['validationMessage']; ?></h3>
+
         </div>
             <!-- Result of validation ends -->
             <?php
