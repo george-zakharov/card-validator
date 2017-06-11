@@ -38,5 +38,26 @@ class CreditCardValidator
 		}
 
 		$inputArray = str_split($number);
+		$checkDigit = array_pop($inputArray);
+		$inputArray = array_reverse($inputArray);
+
+		$finalSum = 0;
+		foreach ($inputArray as $key => $digit) {
+			if ($key % 2 == 0) {
+				$digit = $digit * 2;
+			}
+
+			if ($digit > 9) {
+				$digit = $digit - 9;
+			}
+
+			$finalSum += $digit;
+		};
+
+		if ($checkDigit == $finalSum % 10) {
+			$this->result['validationMessage'] = 'Your card is valid';
+		} else {
+			$this->result['validationMessage'] = 'Your card is not valid';
+		}
 	}
 }
